@@ -16,7 +16,7 @@ int main() {
 	al_init_primitives_addon();
 	ALLEGRO_DISPLAY* display = al_create_display(WIDTH, HEIGHT);
 
-	double zoom = 3000;
+	double zoom = 2600;
 
 	complex <double> c;
 	int num;
@@ -25,11 +25,11 @@ int main() {
 
 	for (double i = -2; i < 2; i += (1 / zoom))
 		for (double j = -2; j < 2; j += (1 / zoom)) {
-			if (i * zoom + 3700 > 0 && j * zoom - 400 > 0 && i * zoom + 3700 < WIDTH && j * zoom - 400 < HEIGHT) {
+			if (i * zoom + 2300 > 0 && j * zoom - 100 > 0 && i * zoom + 2300 < WIDTH && j * zoom - 710 < HEIGHT) {
 				c = complex<double>(i, j);
 				num = mandelbrot(c);
 
-				al_put_pixel(i * zoom + 3700, j * zoom - 400, al_map_rgb(num / 3, num * num, num * num));
+				al_put_pixel(i * zoom + 2300, j * zoom - 710, al_map_rgb(num * 2, num / 5, num));
 			}
 		}
 	al_unlock_bitmap(al_get_target_bitmap());
